@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PizzaButton from './PizzaButton';
 
 const PizzaCounter = () => {
   const pizzas = [
