@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteTodoButton from './DeleteTodoButton';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
   <ul className="todo-list">
@@ -10,9 +11,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
           onChange={() => toggleTodo(todo.id)}
         />
         <span>{todo.text}</span>
-        <button onClick={() => deleteTodo(todo.id)}>
-          Delete
-        </button>
+        <DeleteTodoButton onDelete={() => deleteTodo(todo.id)} />
       </li>
     ))}
   </ul>
