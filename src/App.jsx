@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
+import PizzaCounter from './PizzaCounter';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
       <h1>Mini To-Do List</h1>
       <TodoInput input={input} setInput={setInput} addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <PizzaCounter />
     </div>
   );
 }
