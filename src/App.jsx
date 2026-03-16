@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import TodoInput from './TodoInput';
+import TodoList from './TodoList';
 
 function App() {
 
@@ -39,42 +41,14 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
+
   return (
     <div className="app">
       <h1>Mini To-Do List</h1>
-
-      <div className="todo-input">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Add a new task..."
-          onKeyDown={(e) => e.key === 'Enter' && addTodo()}
-        />
-
-        <button onClick={addTodo}>Add</button>
-      </div>
-
-      <ul className="todo-list">
-        {todos.map(todo => (
-          <li key={todo.id} className={todo.completed ? 'completed' : ''}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => toggleTodo(todo.id)}
-            />
-
-            <span>{todo.text}</span>
-
-            <button onClick={() => deleteTodo(todo.id)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-
+      <TodoInput input={input} setInput={setInput} addTodo={addTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
-  )
+  );
 }
 
 export default App    
